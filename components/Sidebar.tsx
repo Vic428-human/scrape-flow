@@ -9,27 +9,28 @@ import {
 } from "lucide-react";
 import React from "react";
 import Logo from "./Logo";
+import Link from "next/link";
 
 const routes = [
   {
     href: "",
     label: "Home",
-    icom: HomeIcon,
+    icon: HomeIcon,
   },
   {
     href: "workflows",
     label: "Workflows",
-    icom: Layers2Icon,
+    icon: Layers2Icon,
   },
   {
     href: "credentials",
     label: "Credentials",
-    icom: ShieldCheckIcon,
+    icon: ShieldCheckIcon,
   },
   {
     href: "billing",
     label: "Billing",
-    icom: CoinsIcon,
+    icon: CoinsIcon,
   },
 ];
 const DesktopSidebar = () => {
@@ -41,6 +42,14 @@ const DesktopSidebar = () => {
     <div className="relative hidden md:block min-w-[280px] max-w-[280px] h-screen overflow-hidden w-full bg-primary/5 text-muted-foreground dark:bg-secondary/30 dark:text-foreground border-r-2 border-separate">
       <div className="flex justify-center items-center gap-2 border-b-[1px] border-separate p-4">
         <Logo />
+      </div>
+      <div className="flex flex-col p-2">
+        {routes.map((route) => (
+          <Link href={route.href} key={route.href}>
+            <route.icon size={20} />
+            {route.label}
+          </Link>
+        ))}
       </div>
     </div>
   );
