@@ -1,34 +1,33 @@
 import type { Config } from "tailwindcss";
 
-
 //  shadcn/ui 專案在 2024 年 5 月左右釋出的 CLI 工具，
 //  在這次更新後，shadcn/ui 的 CLI 預設不再將某些檔案（如 tailwind.config.ts 或樣式相關設定）放在 public 資料夾中
 //  如果你沒有使用 CLI 產生的 public 檔案，必須手動確認你的 tailwind.config.ts 檔案裡的 theme 設定有包含 container 這個屬性
 
-
 const config: Config = {
-    darkMode: ["class"],
-    content: [
+  darkMode: ["class"],
+  content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-	//  https://v3.tailwindcss.com/docs/container
-	//  這是因為 shadcn/ui 的元件設計仰賴 Tailwind CSS 的 container 工具類別來正確顯示和排版元件。
-	//  總結來說，這是 shadcn/ui 為了讓 CLI 更加靈活、減少不必要檔案而進行的更新。開發者如果跳過了自動產生的 public 檔案，需特別注意 tailwind 設定，否則可能會導致元件樣式顯示異常
-	container: { // 這樣就會覆蓋預設的 container 行為。
+    //  https://v3.tailwindcss.com/docs/container
+    //  這是因為 shadcn/ui 的元件設計仰賴 Tailwind CSS 的 container 工具類別來正確顯示和排版元件。
+    //  總結來說，這是 shadcn/ui 為了讓 CLI 更加靈活、減少不必要檔案而進行的更新。開發者如果跳過了自動產生的 public 檔案，需特別注意 tailwind 設定，否則可能會導致元件樣式顯示異常
+    container: {
+      // 這樣就會覆蓋預設的 container 行為。
       center: true, // 設置容器為置中對齊
-	  padding:'2rem',// rem 代表「root em」，即「根元素」的字體大小（通常是 html 元素的 font-size，預設為 16px），若 html 的 font-size 是 16px，則 2rem 就是 32px
-	  screens:{
-		'2xl':"1400px",
-		sm: "600px",
+      padding: "2rem", // rem 代表「root em」，即「根元素」的字體大小（通常是 html 元素的 font-size，預設為 16px），若 html 的 font-size 是 16px，則 2rem 就是 32px
+      screens: {
+        "2xl": "1400px",
+        sm: "600px",
         md: "728px",
         lg: "984px",
         xl: "1240px",
-	} 
-	},
-  	extend: {
+      },
+    },
+    extend: {
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -62,6 +61,10 @@ const config: Config = {
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
+        },
+        primaryPurple: {
+          DEFAULT: "hsl(var(--primaryPurple))",
+          foreground: "hsl(var(--primaryPurple-foreground))",
         },
       },
       borderRadius: {
@@ -97,7 +100,6 @@ export default config;
 // const fullConfig = resolveConfig(tailwindConfig)
 // fullConfig.theme.screens.2xl
 
-
 /* 這是 Tailwind 預設的 container 配置（簡化版） */
 // .container { // 上面自定義的container配置會覆蓋掉下方預設值 tailwindcss v3
 //   width: 100%;
@@ -112,4 +114,3 @@ export default config;
 // @media (min-width: 1024px) { .container { max-width: 1024px; } }
 // @media (min-width: 1280px) { .container { max-width: 1280px; } }
 // @media (min-width: 1536px) { .container { max-width: 1536px; } }
-
