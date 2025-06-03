@@ -15,6 +15,13 @@ npm 版本 => 10.7.0
 shadcn 版本 => version 2.1.0
 ```
 
+### 客製化 styling
+
+```
+components\ui\button.tsx => hover:bg-muted-foreground
+tailwind.config.ts 都來自於這裡
+```
+
 ### Route Group
 
 - create route group，It's just a way to group files together
