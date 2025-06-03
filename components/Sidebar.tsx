@@ -8,6 +8,7 @@ import {
   ShieldCheckIcon,
 } from "lucide-react";
 import React from "react";
+import Logo from "./Logo";
 
 const routes = [
   {
@@ -38,7 +39,9 @@ const DesktopSidebar = () => {
     // 最終寬度仍會被鎖定在 280px，因為 min/max 會覆蓋 width 的彈性。
     // min-w-[280px] max-w-[280px]
     <div className="relative hidden md:block min-w-[280px] max-w-[280px] h-screen overflow-hidden w-full bg-primary/5 text-muted-foreground dark:bg-secondary/30 dark:text-foreground border-r-2 border-separate">
-      DesktopSidebar
+      <div className="flex justify-center items-center gap-2 border-b-[1px] border-separate p-4">
+        <Logo />
+      </div>
     </div>
   );
 };
