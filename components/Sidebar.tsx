@@ -10,6 +10,8 @@ import {
 import React from "react";
 import Logo from "./Logo";
 import Link from "next/link";
+import { buttonVariants } from "./ui/button";
+import { usePathname } from "next/navigation";
 
 const routes = [
   {
@@ -34,6 +36,13 @@ const routes = [
   },
 ];
 const DesktopSidebar = () => {
+  const pathName = usePathname();
+  // 確認當前路由是否激活
+  const isActiveRoute =
+    routes.find(
+      (route) => route.href.length > 0 && pathName?.includes(route.href)
+    ) || routes[0];
+
   return (
     // min-w-[] 這種寫法會讓元素的寬度被鎖定在 280px，不論內容多少或父容器多寬，元素都只會是 280p
     // w-full => 自動填滿父容器剩餘的寬度，寬度會隨父容器變化而自動調整。
@@ -45,7 +54,16 @@ const DesktopSidebar = () => {
       </div>
       <div className="flex flex-col p-2">
         {routes.map((route) => (
-          <Link href={route.href} key={route.href}>
+          <Link
+            href={route.href}
+            key={route.href}
+            className={buttonVariants({
+              variant:
+                isActiveRoute.href === route.href
+                  ? "sidebarActiveItem"
+                  : "sidebarItem",
+            })}
+          >
             <route.icon size={20} />
             {route.label}
           </Link>
