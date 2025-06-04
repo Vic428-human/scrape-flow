@@ -15,7 +15,16 @@ npm 版本 => 10.7.0
 shadcn 版本 => version 2.1.0
 ```
 
-### 客製化 styling
+### next-themes
+
+是一個用於 Next.js 專案的套件，其主要用途是提供簡單且易於使用的 API 來切換應用程式的主題，
+例如深色模式(dark mode) 和淺色模式(light mode)。
+
+```
+"next-themes": "^0.4.6",
+```
+
+### 客製化 styling for tailwind
 
 ```
 components\ui\button.tsx => hover:bg-muted-foreground
