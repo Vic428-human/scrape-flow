@@ -15,6 +15,14 @@ npm 版本 => 10.7.0
 shadcn 版本 => version 2.1.0
 ```
 
+### 路由不存在
+
+- [not-found.tsx](https://nextjs.org/docs/app/api-reference/file-conventions/not-found)
+
+```
+app/not-found.tsx
+```
+
 ### next-themes
 
 - [next-themes](https://ui.shadcn.com/docs/dark-mode/next)
