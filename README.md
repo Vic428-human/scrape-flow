@@ -17,8 +17,9 @@ shadcn 版本 => version 2.1.0
 
 ### next-themes
 
-是一個用於 Next.js 專案的套件，其主要用途是提供簡單且易於使用的 API 來切換應用程式的主題，
-例如深色模式(dark mode) 和淺色模式(light mode)。
+- [next-themes](https://ui.shadcn.com/docs/dark-mode/next)
+  是一個用於 Next.js 專案的套件，其主要用途是提供簡單且易於使用的 API 來切換應用程式的主題，
+  例如深色模式(dark mode) 和淺色模式(light mode)。
 
 ```
 "next-themes": "^0.4.6",
