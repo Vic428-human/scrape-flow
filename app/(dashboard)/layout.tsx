@@ -1,5 +1,6 @@
 import BreadcrumbHeader from "@/components/BreadcrumbHeader";
 import DesktopSidebar from "@/components/Sidebar";
+import { ModeToggle } from "@/components/ThemeModeToggle";
 import { Separator } from "@/components/ui/separator";
 import React from "react";
 
@@ -17,6 +18,9 @@ function layout({ children }: { children: React.ReactNode }) {
         {/* 把 flex 方向換成 flex-col，兩者的作用方向也會交換（justify 變成垂直，items 變成水平） */}
         <header className="flex items-center justify-between px-6 py-4 h-[50px] container">
           <BreadcrumbHeader />
+          <div className="flex items-center gap-2">
+            <ModeToggle />
+          </div>
         </header>
         {/* 預設值的線沒有出來，所以直接覆蓋ㄋ => https://github.com/shadcn-ui/ui/issues/4818 */}
         <Separator className="border border-gray-300/40" />
