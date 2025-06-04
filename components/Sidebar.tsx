@@ -4,14 +4,23 @@ import {
   CoinsIcon,
   HomeIcon,
   Layers2Icon,
+  MenuIcon,
   Shield,
   ShieldCheckIcon,
 } from "lucide-react";
 import React from "react";
 import Logo from "./Logo";
 import Link from "next/link";
-import { buttonVariants } from "./ui/button";
+import { Button, buttonVariants } from "./ui/button";
 import { usePathname } from "next/navigation";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 
 const routes = [
   {
@@ -35,6 +44,7 @@ const routes = [
     icon: CoinsIcon,
   },
 ];
+
 const DesktopSidebar = () => {
   const pathName = usePathname();
   // 確認當前路由是否激活
@@ -72,5 +82,30 @@ const DesktopSidebar = () => {
     </div>
   );
 };
+
+export function MobileSideabr() {
+  const pathName = usePathname();
+  // 確認當前路由是否激活
+  const isActiveRoute =
+    routes.find(
+      (route) => route.href.length > 0 && pathName?.includes(route.href)
+    ) || routes[0];
+
+  return (
+    <div className="block md:hidden border-separate bg-background">
+      {/* <nav> 元素強調了它所代表的內容是提供導航功能 */}
+      <nav className="container flex items-center justify-center px-8">
+        <Sheet>
+          <SheetTrigger>
+            <Button variant={"purple"} size={"icon"}>
+              <MenuIcon />
+            </Button>
+          </SheetTrigger>
+          <SheetContent></SheetContent>
+        </Sheet>
+      </nav>
+    </div>
+  );
+}
 
 export default DesktopSidebar;
