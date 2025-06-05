@@ -94,14 +94,36 @@ export function MobileSideabr() {
   return (
     <div className="block md:hidden border-separate bg-background">
       {/* <nav> 元素強調了它所代表的內容是提供導航功能 */}
-      <nav className="container flex items-center justify-center px-8">
+      <nav className="container flex items-center justify-between px-8">
         <Sheet>
-          <SheetTrigger>
+          <SheetTrigger asChild>
             <Button variant={"purple"} size={"icon"}>
               <MenuIcon />
             </Button>
           </SheetTrigger>
-          <SheetContent></SheetContent>
+          <SheetContent
+            className="w-[400px] sm:w-[500px] space-y-4"
+            side="right"
+          >
+            <Logo />
+            <div className="flex flex-col p-2">
+              {routes.map((route) => (
+                <Link
+                  href={route.href}
+                  key={route.href}
+                  className={buttonVariants({
+                    variant:
+                      isActiveRoute.href === route.href
+                        ? "sidebarActiveItem"
+                        : "sidebarItem",
+                  })}
+                >
+                  <route.icon size={20} />
+                  {route.label}
+                </Link>
+              ))}
+            </div>
+          </SheetContent>
         </Sheet>
       </nav>
     </div>
