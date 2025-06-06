@@ -41,6 +41,11 @@ Prisma Migrate 是 Prisma ORM 提供的數據庫遷移（Database Migration）�
 - 自動應用遷移到開發數據庫。
 - 在 prisma/migrations 目錄下記錄遷移歷史。
 
+適用場景：
+
+- 修改 schema.prisma 後，需要更新數據庫結構時（如新增表、修改字段）。
+- 本地開發時，數據庫需要與模型保持同步。
+
 - [Development and production](hhttps://www.prisma.io/docs/orm/prisma-migrate/workflows/development-and-production)
 
 ### Clerk 三方登入
