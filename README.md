@@ -13,7 +13,12 @@ Next.js 14.2 是 Next.js 14 系列的稳定版本之一，支持 App Router、�
 npm 版本 => 10.7.0
 "next": "14.2.5"
 shadcn 版本 => version 2.1.0
+
 ```
+
+### Quickstart with SQLite
+
+- [sqlite + prisma ](https://www.prisma.io/docs/getting-started/quickstart-sqlite)
 
 ### Clerk 三方登入
 
