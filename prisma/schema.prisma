@@ -12,6 +12,31 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+// cuid() 不適合用於安全性相關的用途（如 token、密碼重設連結等），因為它有一定的可預測性。
+// uuid() – 生成標準 UUID v4
+// now() – 生成目前時間戳記
+// autoincrement() – 自動遞增整數
+// sequence() – 數據庫序列（PostgreSQL 支援）
+
+// 块级别：@@id, @@unique, @@index, @@map
+// 字段级别：@id, @unique, @default, @updatedAt, @map, @relation
+// 关系
+
 model Workflow {
-  id String @id @default(cuid())
+  id          String   @id @default(cuid()) // 高度的唯一性
+  userId      String
+  name        String
+  description String?
+  definition  String
+  status      String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt // Automatically stores the time when a record was last updated. If you do not supply a time yourself, Prisma Client will automatically set the value for fields with this attribute.
+
+  // 使用複合 ID 和唯一約束
+  // 例如：
+  // 用戶 A (userId: "user1") 可以創建一個名為 "workflow1" 的工作流。
+  // 用戶 B (userId: "user2") 也可以創建一個名為 "workflow1" 的工作流。
+  // 但用戶 A 不能創建第二個同名為 "workflow1" 的工作流（因為 userId + name 組合必須唯一）。
+  // 表示 userId 和 name 的組合必須唯一。
+  @@unique([userId, name])
 }
