@@ -32,6 +32,17 @@ npx prisma init --datasource-provider sqlite // prisma 資料夾生成 schema.pr
 npx prisma generate --schema=../generated/prisma/schema.prisma
 ```
 
+Prisma Migrate 是 Prisma ORM 提供的數據庫遷移（Database Migration）工具，用於管理數據庫架構（schema）的變更。
+它允許你通過定義 數據模型（Prisma Schema） 自動生成並執行 SQL 遷移腳本，確保數據庫結構與你的應用程序模型保持同步
+
+功能：
+
+- 根據 schema.prisma 的變更生成新的遷移文件（SQL 腳本）。
+- 自動應用遷移到開發數據庫。
+- 在 prisma/migrations 目錄下記錄遷移歷史。
+
+- [Development and production](hhttps://www.prisma.io/docs/orm/prisma-migrate/workflows/development-and-production)
+
 ### Clerk 三方登入
 
 - [Clerk 文檔](https://clerk.com/docs/components/clerk-provider)
