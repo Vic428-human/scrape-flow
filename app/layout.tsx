@@ -24,7 +24,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider afterSignOutUrl="/sign-in">
+    <ClerkProvider
+      afterSignOutUrl="/sign-in"
+      appearance={{
+        // variables: { // 定义全局变量，如主色调、文字颜色等
+        //   colorPrimary: "#0f766e", // Tailwind's teal-700
+        //   colorText: "#f8fafc",
+        // },
+        elements: {
+          // 自定义特定 UI 元素的类名或样式
+          formButtonPrimary:
+            "rounded-xl bg-gradient-to-r from-purple-500 to-purple-600",
+        },
+      }}
+    >
       <html lang="en">
         <body className={inter.className}>
           {/* Wrap your root layout */}
