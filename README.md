@@ -15,6 +15,10 @@ npm 版本 => 10.7.0
 shadcn 版本 => version 2.1.0
 ```
 
+### Clerk 三方登入
+
+- [Clerk 文檔](https://clerk.com/docs/components/clerk-provider)
+
 ### 路由不存在
 
 - [not-found.tsx](https://nextjs.org/docs/app/api-reference/file-conventions/not-found)
