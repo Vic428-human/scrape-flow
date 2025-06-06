@@ -3,6 +3,7 @@ import DesktopSidebar from "@/components/Sidebar";
 import { ModeToggle } from "@/components/ThemeModeToggle";
 import { Separator } from "@/components/ui/separator";
 import React from "react";
+import { ClerkProvider, SignedIn, UserButton } from "@clerk/nextjs";
 
 // 傳進layout 的 children 來自 app/(dashboard)/(home)裡的 page 內容
 function layout({ children }: { children: React.ReactNode }) {
@@ -20,6 +21,10 @@ function layout({ children }: { children: React.ReactNode }) {
           <BreadcrumbHeader />
           <div className="flex items-center gap-2">
             <ModeToggle />
+            {/* https://clerk.com/docs/components/control/signed-in */}
+            <SignedIn>
+              <UserButton />
+            </SignedIn>
           </div>
         </header>
         {/* 預設值的線沒有出來，所以直接覆蓋ㄋ => https://github.com/shadcn-ui/ui/issues/4818 */}
