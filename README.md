@@ -16,21 +16,13 @@ shadcn 版本 => version 2.1.0
 
 ```
 
-### Quickstart with SQLite
-
-- [sqlite + prisma ](https://www.prisma.io/docs/getting-started/quickstart-sqlite)
+### visual editor for the data in your database
 
 ```
-npx prisma init --datasource-provider sqlite // prisma 資料夾生成 schema.prisma 檔，並指定資料庫
+npx prisma studio
 ```
 
-- 指令會把 prisma 初始化檔案產生在你指定的資料夾（相對於目前目錄）
-
-```
-// npx prisma init --datasource-provider sqlite --output ../generated/prisma
-// 由於我並非使用 --output ../generated/prisma ，所以之後 generate 或是 migrate 的時候不用另外輸入下方指令
-npx prisma generate --schema=../generated/prisma/schema.prisma
-```
+### prisma migration
 
 Prisma Migrate 是 Prisma ORM 提供的數據庫遷移（Database Migration）工具，用於管理數據庫架構（schema）的變更。
 它允許你通過定義 數據模型（Prisma Schema） 自動生成並執行 SQL 遷移腳本，確保數據庫結構與你的應用程序模型保持同步
@@ -47,6 +39,22 @@ Prisma Migrate 是 Prisma ORM 提供的數據庫遷移（Database Migration）�
 - 本地開發時，數據庫需要與模型保持同步。
 
 - [Development and production](hhttps://www.prisma.io/docs/orm/prisma-migrate/workflows/development-and-production)
+
+### Quickstart with SQLite
+
+- [sqlite + prisma ](https://www.prisma.io/docs/getting-started/quickstart-sqlite)
+
+```
+npx prisma init --datasource-provider sqlite // prisma 資料夾生成 schema.prisma 檔，並指定資料庫
+```
+
+- 指令會把 prisma 初始化檔案產生在你指定的資料夾（相對於目前目錄）
+
+```
+// npx prisma init --datasource-provider sqlite --output ../generated/prisma
+// 由於我並非使用 --output ../generated/prisma ，所以之後 generate 或是 migrate 的時候不用另外輸入下方指令
+npx prisma generate --schema=../generated/prisma/schema.prisma
+```
 
 ### Clerk 三方登入
 
