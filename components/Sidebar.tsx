@@ -24,22 +24,22 @@ import {
 
 const routes = [
   {
-    href: "",
+    href: "/",
     label: "Home",
     icon: HomeIcon,
   },
   {
-    href: "workflows",
+    href: "/workflows",
     label: "Workflows",
     icon: Layers2Icon,
   },
   {
-    href: "credentials",
+    href: "/credentials",
     label: "Credentials",
     icon: ShieldCheckIcon,
   },
   {
-    href: "billing",
+    href: "/billing",
     label: "Billing",
     icon: CoinsIcon,
   },
@@ -48,10 +48,17 @@ const routes = [
 const DesktopSidebar = () => {
   const pathName = usePathname();
   // 確認當前路由是否激活
-  const isActiveRoute =
-    routes.find(
-      (route) => route.href.length > 0 && pathName?.includes(route.href)
-    ) || routes[0];
+  // const isActiveRoute =
+  //   routes.find(
+  //     (route) => route.href.length > 0 && pathName?.includes(route.href)
+  //   ) || routes[0];
+
+  // 判斷是否為當前路由
+  const isActive = (href: string) => {
+    // 精確比對，或首頁特殊處理
+    if (href === "/") return pathName === "/";
+    return pathName?.startsWith(href);
+  };
 
   return (
     // min-w-[] 這種寫法會讓元素的寬度被鎖定在 280px，不論內容多少或父容器多寬，元素都只會是 280p
@@ -68,10 +75,9 @@ const DesktopSidebar = () => {
             href={route.href}
             key={route.href}
             className={buttonVariants({
-              variant:
-                isActiveRoute.href === route.href
-                  ? "sidebarActiveItem"
-                  : "sidebarItem",
+              variant: isActive(route.href)
+                ? "sidebarActiveItem"
+                : "sidebarItem",
             })}
           >
             <route.icon size={20} />
@@ -86,10 +92,16 @@ const DesktopSidebar = () => {
 export function MobileSideabr() {
   const pathName = usePathname();
   // 確認當前路由是否激活
-  const isActiveRoute =
-    routes.find(
-      (route) => route.href.length > 0 && pathName?.includes(route.href)
-    ) || routes[0];
+  // const isActiveRoute =
+  //   routes.find(
+  //     (route) => route.href.length > 0 && pathName?.includes(route.href)
+  //   ) || routes[0];
+
+  const isActive = (href: string) => {
+    // 精確比對，或首頁特殊處理
+    if (href === "/") return pathName === "/";
+    return pathName?.startsWith(href);
+  };
 
   return (
     <div className="block md:hidden border-separate bg-background">
@@ -112,10 +124,13 @@ export function MobileSideabr() {
                   href={route.href}
                   key={route.href}
                   className={buttonVariants({
-                    variant:
-                      isActiveRoute.href === route.href
-                        ? "sidebarActiveItem"
-                        : "sidebarItem",
+                    // variant:
+                    //   isActiveRoute.href === route.href
+                    //     ? "sidebarActiveItem"
+                    //     : "sidebarItem",
+                    variant: isActive(route.href)
+                      ? "sidebarActiveItem"
+                      : "sidebarItem",
                   })}
                 >
                   <route.icon size={20} />
