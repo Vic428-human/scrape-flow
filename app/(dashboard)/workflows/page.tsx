@@ -1,6 +1,9 @@
+import { getWorkflowsForUser } from "@/actions/workflows/getWorkflowsForUser";
 import { Skeleton } from "@/components/ui/skeleton";
 import { waitFor } from "@/hooks/helper/waitFor";
 import React, { Suspense } from "react";
+import { AlertCircleIcon, CheckCircle2Icon, PopcornIcon } from "lucide-react";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 
 function page() {
   return (
@@ -32,6 +35,23 @@ function UserWorkflowsSkeleton() {
 
 async function UserWorkflows() {
   await waitFor(3000); // 假設 waitFor 是個延遲函式，延遲 3 秒
+  const workflows = await getWorkflowsForUser();
+  if (!workflows) {
+    return (
+      <Alert variant="destructive">
+        <AlertCircleIcon />
+        <AlertTitle>Unable to process your payment.</AlertTitle>
+        <AlertDescription>
+          <p>Please verify your billing information and try again.</p>
+          <ul className="list-inside list-disc text-sm">
+            <li>Check your card details</li>
+            <li>Ensure sufficient funds</li>
+            <li>Verify billing address</li>
+          </ul>
+        </AlertDescription>
+      </Alert>
+    );
+  }
   return <div></div>;
 }
 

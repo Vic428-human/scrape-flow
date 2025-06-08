@@ -4,7 +4,8 @@
 
 generator client {
   provider = "prisma-client-js"
-  output   = "../lib/generated/prisma"
+  // output   = "../lib/generated/prisma" 
+  output   = "../node_modules/.prisma/client"
 }
 
 datasource db {
@@ -22,7 +23,7 @@ datasource db {
 // 字段级别：@id, @unique, @default, @updatedAt, @map, @relation
 // 关系
 
-model Workflow {
+model workflow {
   id          String   @id @default(cuid()) // 高度的唯一性
   userId      String
   name        String

@@ -1,6 +1,6 @@
 // lib/prisma.ts
 // 避免多次創建 PrismaClient 實例的目的 => https://www.prisma.io/docs/orm/more/help-and-troubleshooting/nextjs-help
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient } from "@prisma/client"; // 這邊可能需要改成 import { PrismaClient } from 'generated/prisma';  這個
 
 const globalForPrisma = global as unknown as { prisma: PrismaClient };
 

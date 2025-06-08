@@ -16,6 +16,11 @@ shadcn 版本 => version 2.1.0
 
 ```
 
+### prisma 遇到的錯誤資訊回顧
+
+- 問題： [Error: @prisma/client did not initialize yet. Please run "prisma generate" and try to import it again](https://github.com/prisma/prisma/discussions/19669)
+- 解法： 我後來 `output   = "../node_modules/.prisma/client"` 然後再 `npx prisma generate` 就突然成功了
+
 ### visual editor for the data in your database
 
 ```
