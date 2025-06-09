@@ -26,7 +26,11 @@ function CreateWorkflowDialog({ triggerText }: { triggerText?: string }) {
           {triggerText ?? "創建工作流"}
         </Button>
       </DialogTrigger>
-      <DialogContent></DialogContent>
+      {/* 問題：When using the dialog with content larger than the screen height, the dialog gets cut off on top and bottom without the ability to scroll. */}
+      {/*  設定 lg:max-w-screen-lg overflow-y-scroll max-h-screen 可避免上述問題*/}
+      <DialogContent
+        className={"px-0 lg:max-w-screen-lg overflow-y-scroll max-h-screen"}
+      ></DialogContent>
     </Dialog>
   );
 }
