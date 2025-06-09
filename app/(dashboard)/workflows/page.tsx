@@ -4,8 +4,7 @@ import { waitFor } from "@/hooks/helper/waitFor";
 import React, { Suspense } from "react";
 import { AlertCircleIcon, CheckCircle2Icon, PopcornIcon } from "lucide-react";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { Button } from "@/components/ui/button";
-import { PlusIcon } from "lucide-react";
+import CreateWorkflowDialog from "./_components/createWorkflowDialog";
 
 function page() {
   return (
@@ -15,10 +14,7 @@ function page() {
           <h1 className="text-2xl font-bold">自動化流程</h1>
           <p className="text-muted-foreground">在此建立並管理您的流程</p>
         </div>
-        <Button variant="default" className="gap-2">
-          <PlusIcon size={16} />
-          新增流程
-        </Button>
+        <CreateWorkflowDialog />
       </div>
       <div className="h-full py-6">
         <Suspense fallback={<UserWorkflowsSkeleton />}>
@@ -40,11 +36,9 @@ function UserWorkflowsSkeleton() {
 }
 
 async function UserWorkflows() {
-  let workflows = null;
-  let error: string | null = null;
   await waitFor(3000); // 假設 waitFor 是個延遲函式，延遲 3 秒
 
-  workflows = await getWorkflowsForUser();
+  let workflows = await getWorkflowsForUser();
   if (!workflows) {
     return (
       <Alert variant="destructive">
@@ -68,6 +62,8 @@ async function UserWorkflows() {
             您可以點擊右上角的「新增流程」按鈕來建立新的流程。
           </p>
         </div>
+
+        <CreateWorkflowDialog triggerText="創建你的第一個工作流" />
       </div>
     );
   }
