@@ -25,7 +25,7 @@
 @layer base {
   /* light mode */
   :root {
-    --background: 0 100% 50%; /* 紅色背景 */
+    --background: 240 4.8% 95.9%; /* 非常淡的灰藍白（與 secondary 相同，常用於淺背景） */
     --foreground: 240 10% 3.9%; /* 非常深的藍灰色文字（接近黑色） */
     --card: 0 0% 100%; /* 純白色卡片背景 */
     --card-foreground: 240 10% 3.9%; /* 深藍灰色卡片文字 */
