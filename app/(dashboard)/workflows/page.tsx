@@ -54,7 +54,7 @@ async function UserWorkflows() {
     return (
       <div className="flex flex-col gap-2 items-center justify-center">
         <div className="rounded-full bg-accent w-20 h-20 flex items-center justify-center">
-          <PopcornIcon size={40} className="stroke-primary" />
+          <PopcornIcon size={40} className="stroke-purple-600" />
         </div>
         <div className="flex flex-col gap-1 text-center">
           <p className="font-bold">目前沒有任何流程</p>

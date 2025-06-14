@@ -23,7 +23,7 @@ const buttonVariants = cva(
           "gap-2 !justify-start hover:bg-muted-foreground hover:bg-primary/80 hover:text-primary-foreground",
         sidebarActiveItem:
           "gap-2 !justify-start bg-primaryPurple text-primary-foreground hover:bg-primary/80",
-        purple: "bg-purple-600 text-white hover:bg-purple-800", // 自定義紫色按鈕樣式
+        purple: "bg-purple-600 text-white hover:bg-purple-800", // 設定在 extends 自定義紫色按鈕樣式
       },
       size: {
         default: "h-10 px-4 py-2",
