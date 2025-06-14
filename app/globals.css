@@ -25,31 +25,30 @@
 @layer base {
   /* light mode */
   :root {
-     --background: 0 100% 50%; /* 紅色 */
-      /* ...其他變數... */
-    --foreground: 240 10% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
-    --primary: 142.1 76.2% 36.3%;
-    --primary-foreground: 355.7 100% 97.3%;
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 142.1 76.2% 36.3%;
-    --radius: 0.5rem;
-    --chart-1: 142 88% 28%;
-    --chart-2: 140 74% 44%;
-    --primaryPurple: 270, 100%, 50%; /* HSL 格式的紫色 */
-    --primaryPurple-foreground: 355.7 100% 97.3%;
+    --background: 0 100% 50%; /* 紅色背景 */
+    --foreground: 240 10% 3.9%; /* 非常深的藍灰色文字（接近黑色） */
+    --card: 0 0% 100%; /* 純白色卡片背景 */
+    --card-foreground: 240 10% 3.9%; /* 深藍灰色卡片文字 */
+    --popover: 0 0% 100%; /* 純白色彈出視窗背景 */
+    --popover-foreground: 240 10% 3.9%; /* 深藍灰色文字（用於popover） */
+    --primary: 142.1 76.2% 36.3%; /* 鮮明的草綠色主色 */
+    --primary-foreground: 355.7 100% 97.3%; /* 非常淺的粉紅白文字（用於主色文字） */
+    --secondary: 240 4.8% 95.9%; /* 淺灰藍色背景（次要元素） */
+    --secondary-foreground: 240 5.9% 10%; /* 深灰藍色文字（次要元素文字） */
+    --muted: 240 4.8% 95.9%; /* 淺灰藍色背景（靜音/不活躍區塊） */
+    --muted-foreground: 240 3.8% 46.1%; /* 中灰藍色文字（靜音區塊用） */
+    --accent: 240 4.8% 95.9%; /* 淺灰藍色強調區塊背景（與 muted 類似） */
+    --accent-foreground: 240 5.9% 10%; /* 深灰藍色文字（強調區塊） */
+    --destructive: 0 84.2% 60.2%; /* 明亮的紅色（用於警告、刪除等危險操作） */
+    --destructive-foreground: 0 0% 98%; /* 幾乎是白色的文字（搭配紅色背景） */
+    --border: 240 5.9% 90%; /* 淺灰藍色邊框 */
+    --input: 240 5.9% 90%; /* 淺灰藍色輸入框背景 */
+    --ring: 142.1 76.2% 36.3%; /* 草綠色描邊（聚焦或選中狀態） */
+    --radius: 0.5rem; /* 圓角半徑設定 */
+    --chart-1: 142 88% 28%; /* 深綠色（圖表用） */
+    --chart-2: 140 74% 44%; /* 中綠色（圖表用） */
+    --primaryPurple: 270, 100%, 50%; /* 鮮艷的紫色主色（HSL格式） */
+    --primaryPurple-foreground: 355.7 100% 97.3%; /* 非常淺的粉紅白文字（用於紫色背景上） */
   }
 
   .dark {
