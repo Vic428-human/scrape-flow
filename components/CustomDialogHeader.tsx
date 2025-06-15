@@ -10,6 +10,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
+import { Separator } from "./ui/separator";
 
 interface Props {
   icon?: React.ElementType; // 可以是任何 React 元素類型s
@@ -55,6 +56,8 @@ function CustomDialogHeader(props: Props) {
           )}
         </div>
       </DialogTitle>
+
+      <Separator />
     </DialogHeader>
   );
 }
